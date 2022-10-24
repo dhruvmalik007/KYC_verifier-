@@ -27,6 +27,11 @@ interface IERC6595 {
         string logic;
         Values expectation;
     }
+    /// @notice getter function to validate if the address `verifying` is the holder of the SBT defined by the tokenId `SBTID`
+    /// @dev it MUST be defining the logic corresponding to all the current possible requirements definition.
+    /// @param verifying is the  EOA address that wants to validate the SBT issued to it by the KYC. 
+    /// @param SBTID is the Id of the SBT that user is the claimer.
+    /// @return true if the assertion is valid, else false
 
     function ifVerified(address verifying, uint256 SBTID) external view returns (bool);
     function standardRequirement(uint256 SBTID) external view returns (Requirement[] memory);
